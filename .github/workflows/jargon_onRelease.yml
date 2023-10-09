@@ -26,15 +26,18 @@ jobs:
                 print('Failed to download: ' + url)
 
             jsonObj = json.loads("""${{ toJSON(github.event.client_payload) }}""")
-            artefacts = jsonObj['artefacts']
-            for artefactType in artefacts:
-              if artefactType == 'lifeCycles':
-                lifeCycles = artefacts['lifeCycles']
-                for cycle in lifeCycles:
-                  download(cycle['url'], cycle['fileName'])
-              else:
-                artefact = artefacts[artefactType]
-                download(artefact['url'], artefact['fileName'])
+            if "test" in jsonObj['action']:
+              print('Running in test mode. Exiting')
+            else:
+              artefacts = jsonObj['artefacts']
+              for artefactType in artefacts:
+                if artefactType == 'lifeCycles':
+                  lifeCycles = artefacts['lifeCycles']
+                  for cycle in lifeCycles:
+                    download(cycle['url'], cycle['fileName'])
+                else:
+                  artefact = artefacts[artefactType]
+                  download(artefact['url'], artefact['fileName'])
 
       - name: Commit & Push changes
         uses: actions-js/push@master
