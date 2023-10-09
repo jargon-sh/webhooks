@@ -25,7 +25,7 @@ jobs:
               except:
                 print('Failed to download: ' + url)
 
-            jsonObj = json.loads(${{ toJSON(github.event.client_payload) }})
+            jsonObj = json.loads(${{ github.event.client_payload }})
             artefacts = jsonObj['artefacts']
             for artefactType in artefacts:
               if artefactType == 'lifeCycles':
