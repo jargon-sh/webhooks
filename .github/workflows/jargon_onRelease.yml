@@ -30,7 +30,7 @@ jobs:
 
             # Determine if this was a Release, or Snapshot
             onRelease = False
-            if jsonObj['action']['name'] == "onRelease" onRelease = True
+            if jsonObj['action']['name'] == "onRelease": onRelease = True
 
             if "test" in jsonObj['action']:
               # Do nothing for test runs
