@@ -25,10 +25,18 @@ jobs:
               except:
                 print('Failed to download: ' + url)
 
+            # Parse the Json Webhook from Jargon
             jsonObj = json.loads("""${{ toJSON(github.event.client_payload) }}""")
+
+            # Determine if this was a Release, or Snapshot
+            onRelease = False
+            if jsonObj['action']['name'] == "onRelease" onRelease = True
+
             if "test" in jsonObj['action']:
+              # Do nothing for test runs
               print('Running in test mode. Exiting')
             else:
+              # Download the artefacts
               artefacts = jsonObj['artefacts']
               for artefactType in artefacts:
                 if artefactType == 'lifeCycles':
