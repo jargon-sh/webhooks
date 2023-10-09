@@ -10,6 +10,12 @@ jobs:
   
   get-jargonArtefacts:
     runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
     steps:
       - uses: actions/checkout@v2
       - run: mkdir -p ${{ env.ARTEFACT_DIR }}
@@ -52,7 +58,6 @@ jobs:
       - name: Commit & Push
         if: ${{ github.event.client_payload.action.test }} == undefined 
         run: |
-          find .
           git config --global user.name "${{ env.CI_AUTHOR }}"
           git config --global user.email "${{ env.CI_AUTHOR }}@users.noreply.github.com"
           git add ${{ env.ARTEFACT_DIR }}/*
