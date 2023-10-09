@@ -49,7 +49,7 @@ jobs:
                   
       # Commit and push all changed files.
       - name: Commit & Push
-        if: ${{ github.event.client_payload.action.test == undefined )
+        if: ${{ github.event.client_payload.action.test }} == undefined 
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "username@users.noreply.github.com"
