@@ -6,7 +6,7 @@
       "email": "you@example.com",
       "url": "https://example.com/help"
     },
-    "version": "unreleased",
+    "version": "0.0.3",
     "title": "Swagger Petstore"
   },
   "paths": {
@@ -17,12 +17,14 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -152,12 +154,14 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success",
+          "204": {
+            "description": "No content.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"204\",\n  \"description\": \"The server successfully processed the request and is not returning any content. \",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -229,7 +233,7 @@
         },
         "summary": "Find a Pet by status",
         "operationId": "listPets_findByStatus",
-        "description": "Searches for pets by their status\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/customers?page=1&limit=10'\n\nPage 2: '/customers?page=2&limit=10'\n\n                    "
+        "description": "Searches for pets by their status\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/pets/findByStatus?page=1&limit=10'\n\nPage 2: '/pets/findByStatus?page=2&limit=10'\n\n"
       }
     },
     "/pets/findByTags": {
@@ -282,38 +286,30 @@
         },
         "summary": "Get a Pet by Tags",
         "operationId": "listPets_findByTags",
-        "description": "Searches for pets by their tags\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/customers?page=1&limit=10'\n\nPage 2: '/customers?page=2&limit=10'\n\n                    "
+        "description": "Searches for pets by their tags\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/pets/findByTags?page=1&limit=10'\n\nPage 2: '/pets/findByTags?page=2&limit=10'\n\n"
       }
     },
-    "/pets/{id}/uploadImage": {
+    "/pets/uploadImage": {
       "post": {
         "tags": [
           "Pet"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "description": "A unique number that identifies Pets",
-            "schema": {
-              "type": "number"
-            },
-            "in": "path",
-            "required": true
-          }
-        ],
+        "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
           }
         },
-        "summary": "Add a Pet photo",
+        "summary": "Create a new Pet ",
         "operationId": "createPet_uploadImage_uploadImage",
         "requestBody": {
           "content": {
@@ -324,12 +320,7 @@
             }
           }
         },
-        "description": "Uploads a photo of a pet",
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     },
     "/users": {
@@ -339,12 +330,14 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -482,12 +475,14 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success",
+          "204": {
+            "description": "No content.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"204\",\n  \"description\": \"The server successfully processed the request and is not returning any content. \",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -516,12 +511,14 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -556,12 +553,14 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -596,12 +595,14 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -633,12 +634,14 @@
         ],
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"201\",\n  \"description\": \"The resource was created. The Response Location HTTP header should be returned to indicate where the newly created resource is accessible.\",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -725,12 +728,14 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success",
+          "204": {
+            "description": "No content.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
+                "examples": {
+                  "response": {
+                    "value": "{\n  \"status\": \"204\",\n  \"description\": \"The server successfully processed the request and is not returning any content. \",\n  \"more_info\": \"\"\n} \n"
+                  }
                 }
               }
             }
@@ -763,31 +768,16 @@
         },
         "x-example": "X-Protective-Marking: VER=<ver>, NS=gov.au, SEC=<securityClassification>",
         "description": "Transmission of any payload, request or response, containing data classified as having a high business impact level or above SHOULD apply by an ‘x-protective-marking’ HTTP header.\n-\tAn ‘x-protective-marking’ HTTP header MUST be used to apply appropriate protective marking to Commonwealth information classified as having a high business impact level or above (classification of ‘PROTECTED’), and SHOULD be applied to Commonwealth information classified as having a medium business impact level."
-      },
-      "Template_page": {
-        "in": "query",
-        "name": "page",
-        "schema": {
-          "type": "number"
-        },
-        "description": "The page that the user wants to return."
-      },
-      "Template_page_limit": {
-        "in": "query",
-        "name": "limit",
-        "schema": {
-          "type": "number"
-        },
-        "description": "The number of results per page the user wants to return."
       }
     },
     "schemas": {
       "Pet": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "id": {
+            "x-jargon-isKey": true,
             "type": "number",
-            "readOnly": true,
             "description": "A unique number that identifies Pets"
           },
           "name": {
@@ -814,54 +804,60 @@
           },
           "status": {
             "type": "string",
-            "example": "available",
             "enum": [
               "available",
               "pending",
               "sold"
             ],
+            "example": "available",
             "description": "The staus of this pet, showing if it has been sold or not"
           }
-        }
+        },
+        "description": ""
       },
       "Category": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "id": {
+            "x-jargon-isKey": true,
             "type": "number",
-            "readOnly": true,
             "description": "A unique number that identifies a category"
           },
           "name": {
             "type": "string",
             "description": "The name of the category"
           }
-        }
+        },
+        "description": ""
       },
       "Tag": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "id": {
+            "x-jargon-isKey": true,
             "type": "number",
-            "readOnly": true,
             "description": "A unique number that identifies this tag"
           },
           "name": {
             "type": "string",
             "description": "The name of this tag"
           }
-        }
+        },
+        "description": ""
       },
       "User": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "id": {
             "type": "number",
             "description": "A unique number for the user"
           },
           "username": {
+            "x-jargon-isKey": true,
             "type": "string",
-            "readOnly": true,
             "description": "The user's chosen username, which is unique across the store and identifies them"
           },
           "firstName": {
@@ -888,14 +884,16 @@
             "type": "number",
             "description": "Status of the user"
           }
-        }
+        },
+        "description": ""
       },
       "Order": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "id": {
+            "x-jargon-isKey": true,
             "type": "number",
-            "readOnly": true,
             "description": "A unique number assigned to every order"
           },
           "pet": {
@@ -908,37 +906,39 @@
           },
           "shipDate": {
             "type": "string",
+            "format": "date",
             "description": "The date that the order was shipped from the store"
           },
           "status": {
             "type": "string",
-            "example": "placed",
             "enum": [
               "placed",
               "approved",
               "delivered"
             ],
+            "example": "placed",
             "description": "Describes where the order is in it's fulfilment process."
           },
           "complete": {
             "type": "boolean",
             "description": "Indicates if the order has finished"
           }
-        }
+        },
+        "description": ""
       },
-      "Template_ErrorSchema": {
+      "TemplateErrorSchema": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Template_Error"
+              "$ref": "#/components/schemas/TemplateError"
             },
             "description": ""
           }
         }
       },
-      "Template_Error": {
+      "TemplateError": {
         "type": "object",
         "properties": {
           "id": {
@@ -955,12 +955,12 @@
             "description": ""
           },
           "source": {
-            "$ref": "#/components/schemas/Template_ErrorSource",
+            "$ref": "#/components/schemas/TemplateErrorSource",
             "description": ""
           }
         }
       },
-      "Template_ErrorSource": {
+      "TemplateErrorSource": {
         "type": "object",
         "properties": {
           "pointer": {
@@ -1001,27 +1001,16 @@
       }
     },
     "securitySchemes": {
-      "main_auth": {
-        "type": "oauth2",
-        "flows": {
-          "implicit": {
-            "authorizationUrl": "http://example.com/api/oauth/dialog",
-            "scopes": {
-              "read:users": "read users info",
-              "write:users": "modify or remove users"
-            }
-          }
-        }
-      },
       "api_key": {
         "type": "apiKey",
         "name": "api_key",
         "in": "header"
-      },
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
       }
     }
-  }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
 }

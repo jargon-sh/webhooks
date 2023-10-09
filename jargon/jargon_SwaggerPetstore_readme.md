@@ -1,10 +1,10 @@
 
 
 
-## Data Model of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
+## Data Model of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/0.0.3)
 
 ![Data Model of jargon/SwaggerPetstore](jargon_SwaggerPetstore_dataModel.svg)
-## Data Definitions of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
+## Data Definitions of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/0.0.3)
 
 ### Order
 
@@ -80,13 +80,27 @@ tags | A list of tags that describe this pet, like cute. | [Tag](#tag)
 status | The staus of this pet, showing if it has been sold or not | Code (SoldStatus)
 
 
-## Code Tables of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
+## Code Tables of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/0.0.3)
+
+### OrderStatus
+
+|Name | Description|
+|--- | ---|
+|placed | The Order has been placed|
+|approved | The Order has been approved|
+|delivered | the Order has been delivered|
 
 
+### SoldStatus
+
+|Name | Description|
+|--- | ---|
+|available | The Pet is available for sale|
+|pending | The Pet has been sold, but the transaction is still pending|
+|sold | The Pet has been sold|
 
 
-
-## Open API Specification of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
+## Open API Specification of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/0.0.3)
 
 This specification is available in different forms:
 - As a [JSON specification](jargon_SwaggerPetstore_openapi.json)
