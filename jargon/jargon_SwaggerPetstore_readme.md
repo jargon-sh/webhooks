@@ -3,7 +3,7 @@
 
 ## Data Model of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
 
-![Data Model of jargon/SwaggerPetstore]({{ site.jargon.staticFiles }}jargon_SwaggerPetstore_dataModel.svg)
+![Data Model of jargon/SwaggerPetstore](jargon_SwaggerPetstore_dataModel.svg)
 ## Data Definitions of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
 
 ### Order
@@ -89,6 +89,6 @@ status | The staus of this pet, showing if it has been sold or not | Code (SoldS
 ## Open API Specification of [jargon/SwaggerPetstore](/user/jargon/SwaggerPetstore/v/working)
 
 This specification is available in different forms:
-- As a [JSON specification]({{ site.jargon.staticFiles }}jargon_SwaggerPetstore_openapi.json)
-- As a [browsable Swagger Ui page]({{ site.jargon.staticFiles }}jargon_SwaggerPetstore_openapi.json)
+- As a [JSON specification](jargon_SwaggerPetstore_openapi.json)
+- As a [browsable Swagger Ui page](jargon_SwaggerPetstore_openapi.json)
 
